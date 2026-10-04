@@ -23,7 +23,7 @@ public class Produto {
 
         this.codigo = codigo;
         this.nome = nome;
-        setPreco(preco);
+        this.preco = Math.max(preco, 0);
         this.estoque = Math.max(estoque, 0);
     }
 
@@ -44,7 +44,7 @@ public class Produto {
     }
 
     /** Preço negativo é rejeitado; o valor anterior é mantido. */
-    public void setPreco(double preco) {
+    public final void setPreco(double preco) {
         if (preco < 0) {
             System.out.println("Preço não pode ser negativo. Valor mantido.");
             return;

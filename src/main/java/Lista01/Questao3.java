@@ -3,6 +3,7 @@ package Lista01;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import util.Entrada;
 
 /*
  * Questão 3
@@ -12,9 +13,7 @@ import java.util.Scanner;
 public class Questao3 {
 
     public static void resolver(Scanner in) {
-        System.out.print("Informe N (inteiro positivo): ");
-        int n = in.nextInt();
-        in.nextLine();
+        int n = Entrada.lerInteiro(in, "Informe N (inteiro positivo): ");
 
         if (n < 2) {
             System.out.println("Não existem primos menores que 2.");

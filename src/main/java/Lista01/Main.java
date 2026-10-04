@@ -1,6 +1,7 @@
 package Lista01;
 
 import java.util.Scanner;
+import util.Entrada;
 
 /**
  * Menu da Lista 01.
@@ -16,15 +17,7 @@ public class Main {
 
             while (executando) {
                 exibirMenu();
-
-                if (!in.hasNextInt()) {
-                    System.out.println("Informe um número inteiro.");
-                    in.nextLine();
-                    continue;
-                }
-
-                int opcao = in.nextInt();
-                in.nextLine();
+                int opcao = Entrada.lerInteiro(in, "Opção: ");
                 System.out.println();
 
                 switch (opcao) {
@@ -51,6 +44,5 @@ public class Main {
         System.out.println("3 - Números primos até N");
         System.out.println("4 - Gráfico de barras com asteriscos");
         System.out.println("0 - Sair");
-        System.out.print("Opção: ");
     }
 }

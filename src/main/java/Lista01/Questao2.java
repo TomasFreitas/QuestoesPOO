@@ -1,6 +1,7 @@
 package Lista01;
 
 import java.util.Scanner;
+import util.Entrada;
 
 /*
  * Questão 2
@@ -13,10 +14,7 @@ import java.util.Scanner;
 public class Questao2 {
 
     public static void resolver(Scanner in) {
-        System.out.print("Informe um número inteiro: ");
-        int numero = in.nextInt();
-        in.nextLine();
-
+        int numero = Entrada.lerInteiro(in, "Informe um número inteiro: ");
         System.out.println(classificar(numero));
     }
 

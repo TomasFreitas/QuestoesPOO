@@ -1,6 +1,7 @@
 package Lista01;
 
 import java.util.Scanner;
+import util.Entrada;
 
 /*
  * Questão 4
@@ -21,7 +22,7 @@ public class Questao4 {
 
         System.out.printf("Informe %d números entre %d e %d.%n", QUANTIDADE, MINIMO, MAXIMO);
         for (int i = 0; i < QUANTIDADE; i++) {
-            valores[i] = lerNoIntervalo(in, i + 1);
+            valores[i] = Entrada.lerInteiro(in, String.format("%do número: ", i + 1), MINIMO, MAXIMO);
         }
 
         System.out.println();
@@ -29,19 +30,6 @@ public class Questao4 {
         exibirGrafico(valores);
     }
 
-    /** Repete a leitura até o usuário informar um valor dentro do intervalo permitido. */
-    private static int lerNoIntervalo(Scanner in, int posicao) {
-        while (true) {
-            System.out.printf("%do número: ", posicao);
-            int valor = in.nextInt();
-            in.nextLine();
-
-            if (valor >= MINIMO && valor <= MAXIMO) {
-                return valor;
-            }
-            System.out.printf("Valor fora do intervalo [%d, %d]. Tente novamente.%n", MINIMO, MAXIMO);
-        }
-    }
 
     public static void exibirGrafico(int[] valores) {
         for (int valor : valores) {

@@ -6,6 +6,7 @@ Resoluções das listas da disciplina de Programação Orientada a Objetos.
 |-------|----------|
 | [Lista 01](src/main/java/Lista01) | Entrada/saída, condicionais, laços, vetores. Questões teóricas abaixo. |
 | [Lista 02](src/main/java/Lista02) | Classes, encapsulamento, abstração. Questões teóricas em [`Lista-02.md`](src/main/java/Lista02/Lista-02.md). |
+| [util](src/main/java/util) | [`Entrada`](src/main/java/util/Entrada.java): leitura de teclado com validação, usada pelas duas listas. |
 
 ## Como executar
 
@@ -25,6 +26,9 @@ java -cp target/classes Lista01.Main
 ```
 
 Projeto compila com `--release 21`.
+
+> **Separador decimal:** `Scanner.nextDouble()` segue o locale do sistema. Em
+> `pt_BR` digite `349,90` (vírgula); em `en_US`, `349.90` (ponto).
 
 ---
 

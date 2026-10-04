@@ -1,6 +1,7 @@
 package Lista01;
 
 import java.util.Scanner;
+import util.Entrada;
 
 /*
  * Questão 1
@@ -14,15 +15,12 @@ public class Questao1 {
     private static final double MEDIA_APROVACAO = 7.0;
 
     public static void resolver(Scanner in) {
-        System.out.print("Nome do aluno: ");
-        String nome = in.nextLine().trim();
+        String nome = Entrada.lerTexto(in, "Nome do aluno: ");
 
         double[] notas = new double[PESOS.length];
         for (int i = 0; i < notas.length; i++) {
-            System.out.printf("Nota %d (peso %.0f): ", i + 1, PESOS[i]);
-            notas[i] = in.nextDouble();
+            notas[i] = Entrada.lerDecimal(in, String.format("Nota %d (peso %.0f): ", i + 1, PESOS[i]));
         }
-        in.nextLine(); // descarta o restante da linha do último número
 
         double media = mediaPonderada(notas, PESOS);
         String situacao = media >= MEDIA_APROVACAO ? "Aprovado" : "Reprovado";

@@ -1,6 +1,7 @@
 package Lista02;
 
 import java.util.Scanner;
+import util.Entrada;
 
 /** Menu da Lista 02: exercita ContaCorrente e Produto. */
 public class Main {
@@ -14,15 +15,7 @@ public class Main {
 
             while (executando) {
                 exibirMenu();
-
-                if (!in.hasNextInt()) {
-                    System.out.println("Informe um número inteiro.");
-                    in.nextLine();
-                    continue;
-                }
-
-                int opcao = in.nextInt();
-                in.nextLine();
+                int opcao = Entrada.lerInteiro(in, "Opção: ");
 
                 switch (opcao) {
                     case 1 -> sacar(in, conta);
@@ -44,12 +37,8 @@ public class Main {
     }
 
     private static ContaCorrente criarConta(Scanner in) {
-        System.out.print("Número da nova conta: ");
-        int numero = in.nextInt();
-        in.nextLine();
-
-        System.out.print("Nome do titular: ");
-        String titular = in.nextLine().trim();
+        int numero = Entrada.lerInteiro(in, "Número da nova conta: ");
+        String titular = Entrada.lerTexto(in, "Nome do titular: ");
 
         ContaCorrente conta = new ContaCorrente(numero, titular);
         System.out.println("Conta criada: " + conta);
@@ -67,13 +56,10 @@ public class Main {
         System.out.println("5 - Alterar preço do produto");
         System.out.println("6 - Vender produto");
         System.out.println("0 - Sair");
-        System.out.print("Opção: ");
     }
 
     private static void sacar(Scanner in, ContaCorrente conta) {
-        System.out.print("Valor do saque: R$ ");
-        double valor = in.nextDouble();
-        in.nextLine();
+        double valor = Entrada.lerDecimal(in, "Valor do saque: R$ ");
 
         if (conta.sacar(valor)) {
             System.out.printf("Saque realizado. Novo saldo: R$ %.2f%n", conta.consultarSaldo());
@@ -81,9 +67,7 @@ public class Main {
     }
 
     private static void depositar(Scanner in, ContaCorrente conta) {
-        System.out.print("Valor do depósito: R$ ");
-        double valor = in.nextDouble();
-        in.nextLine();
+        double valor = Entrada.lerDecimal(in, "Valor do depósito: R$ ");
 
         if (conta.depositar(valor)) {
             System.out.printf("Depósito realizado. Novo saldo: R$ %.2f%n", conta.consultarSaldo());
@@ -91,18 +75,14 @@ public class Main {
     }
 
     private static void alterarPreco(Scanner in, Produto produto) {
-        System.out.print("Novo preço: R$ ");
-        double preco = in.nextDouble();
-        in.nextLine();
+        double preco = Entrada.lerDecimal(in, "Novo preço: R$ ");
 
         produto.setPreco(preco);
         produto.exibirInfo();
     }
 
     private static void vender(Scanner in, Produto produto) {
-        System.out.print("Quantidade a vender: ");
-        int quantidade = in.nextInt();
-        in.nextLine();
+        int quantidade = Entrada.lerInteiro(in, "Quantidade a vender: ");
 
         if (produto.vender(quantidade)) {
             System.out.printf("Venda registrada. Estoque atual: %d%n", produto.getEstoque());
