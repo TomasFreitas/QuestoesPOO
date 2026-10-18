@@ -6,6 +6,7 @@ Resoluções das listas da disciplina de Programação Orientada a Objetos.
 |-------|----------|
 | [Lista 01](src/main/java/Lista01) | Entrada/saída, condicionais, laços, vetores. Questões teóricas abaixo. |
 | [Lista 02](src/main/java/Lista02) | Classes, encapsulamento, abstração. Questões teóricas em [`Lista-02.md`](src/main/java/Lista02/Lista-02.md). |
+| [Lista 04](src/main/java/Lista04) | Herança, classes abstratas, polimorfismo. Questões teóricas em [`Lista-04.md`](src/main/java/Lista04/Lista-04.md). |
 | [util](src/main/java/util) | [`Entrada`](src/main/java/util/Entrada.java): leitura de teclado com validação, usada pelas duas listas. |
 
 ## Como executar
@@ -16,6 +17,10 @@ mvn -q compile exec:java -Dexec.mainClass=Lista01.Main
 
 # Lista 02 (conta corrente e produto)
 mvn -q compile exec:java -Dexec.mainClass=Lista02.Main
+
+# Lista 04 (questões 4 e 5)
+mvn -q compile exec:java -Dexec.mainClass=Lista04.MainPagamento
+mvn -q compile exec:java -Dexec.mainClass=Lista04.MainCombate
 ```
 
 Sem Maven:
